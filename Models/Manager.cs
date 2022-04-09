@@ -49,38 +49,38 @@ namespace GBC.Models
     {
         public int Id { get; set; }
 
-        [StringLength(60, MinimumLength = 2), Required]
+        [StringLength(51, MinimumLength = 1), Required]
         [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
 
-        [StringLength(60, MinimumLength = 1), Required]
+        [StringLength(51, MinimumLength = 1), Required]
         [Display(Name = "Customer Address")]
         public string CustomerAddress { get; set; }
 
 
-        [StringLength(60, MinimumLength = 1), Required]
+        [StringLength(51, MinimumLength = 1), Required]
         [Display(Name = "Customer City")]
         public string CustomerCity { get; set; }
 
 
-        [StringLength(60, MinimumLength = 1), Required]
+        [StringLength(51, MinimumLength = 1), Required]
         [Display(Name = "Customer State")]
         public string CustomerState { get; set; }
 
 
-        [StringLength(6, MinimumLength = 6), Required]
+        [StringLength(21, MinimumLength = 1), Required]
         [Display(Name = "Customer Postal")]
         public string CustomerPostal { get; set; }
 
         [Display(Name = "Customer Country"), Required]
         public CustomerCountry Country { get; set; }
 
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+        [StringLength(51, MinimumLength = 1), DataType(DataType.EmailAddress)]
         [Display(Name = "Customer Email")]
         public string? CustomerEmail { get; set; }
 
-        [StringLength(10)]
+        [RegularExpression(@"/\(\d\d\d\)\s\d\d\d-\d\d\d\d/gm", ErrorMessage = "Phone number must be in (999) 999-9999 format.")]
         [Display(Name = "Customer Phone")]
         public string? CustomerPhone { get; set; }
 
